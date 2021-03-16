@@ -1,0 +1,13 @@
+version: "3"
+services:
+  db:
+    image: mariadb:10.5
+    restart: unless-stopped
+    container_name: seiwhale-mariadb
+    ports:
+      - "3302:3306"
+    volumes:
+      - ./db/conf.d:/etc/mysql/conf.d
+      - ./db/db_data:/var/lib/mysql
+      - ./db/initdb.d:/docker-entrypoint-initdb.d
+    env_file: .env
