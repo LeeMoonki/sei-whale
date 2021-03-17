@@ -1,0 +1,10 @@
+version: "3"
+services:
+  servicebackend:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./services/server
+    container_name: seiwhale-backend
+    volumes:
+      - /app/node_modules
+      - ./services/server:/app
