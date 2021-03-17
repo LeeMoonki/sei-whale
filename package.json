@@ -2,7 +2,10 @@
   "name": "sei-whale",
   "version": "1.0.0",
   "private": true,
-  "scripts": {},
+  "scripts": {
+    "db": "docker-compose -f ./mariadb/docker-compose.yml up -d",
+    "db:stop": "docker-compose -f ./mariadb/docker-compose.yml stop"
+  },
   "workspaces": [
     "services/*"
   ],
