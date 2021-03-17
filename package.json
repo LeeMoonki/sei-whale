@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "db": "docker-compose -f ./mariadb/docker-compose.yml up -d",
-    "db:stop": "docker-compose -f ./mariadb/docker-compose.yml stop"
+    "db:stop": "docker-compose -f ./mariadb/docker-compose.yml stop",
+    "server": "yarn workspace server start"
   },
   "workspaces": [
     "services/*"
