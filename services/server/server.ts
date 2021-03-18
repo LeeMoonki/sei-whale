@@ -7,7 +7,7 @@ const PORT =
   || 3000;
 
 function start(port: number | string) {
-  fastify.listen(port, function(err, address) {
+  fastify.listen(port, '0.0.0.0', function(err, address) {
     if (err) {
       fastify.log.error(err.message);
       process.exit(1);
