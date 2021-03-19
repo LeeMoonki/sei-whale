@@ -10,3 +10,13 @@ services:
       - ./services/server:/app
     ports:
       - "3000:3000"
+  servicefrontend:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./services/webapp
+    container_name: seiwhale-frontend
+    volumes:
+      - /app/node_modules
+      - ./services/webapp:/app
+    ports:
+      - "8080:3000"

@@ -5,7 +5,10 @@
   "scripts": {
     "db": "docker-compose -f ./mariadb/docker-compose.yml up -d",
     "db:stop": "docker-compose -f ./mariadb/docker-compose.yml stop",
-    "start": "yarn workspace server start"
+    "start": "docker-compose up -d",
+    "start:rebuild": "docker-compose up --build -d && docker rmi -f $(docker images -f \"dangling=true\" -q)",
+    "stop": "docker-compose stop",
+    "down": "docker-compose down"
   },
   "license": "MIT"
 }
