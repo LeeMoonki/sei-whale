@@ -4,6 +4,9 @@ import styles from '../styles/Home.module.css'
 export default function Home() {
   return (
     <div>
+      <Head>
+        <title>sei-whale</title>
+      </Head>
       <h1>Sei Whale Service!!</h1>
       <button onClick={() => {
         fetch('http://localhost:3000/').then(r => r.json()).then(res => {
