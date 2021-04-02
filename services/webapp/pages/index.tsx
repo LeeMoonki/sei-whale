@@ -16,7 +16,8 @@ export default function Home() {
         type="button"
         onClick={() => {
           setCount(count + 1);
-        }}>
+        }}
+      >
         증가
       </button>
     </div>
