@@ -1,0 +1,10 @@
+@import './presets/default.scss';
+
+#app {
+  width: 100%;
+}
+.layoutBoundary {
+  margin: 0 auto;
+  width: $serviceWidth;
+  max-width: $serviceWidth;
+}

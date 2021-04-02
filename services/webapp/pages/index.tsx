@@ -1,25 +1,22 @@
 import Head from 'next/head';
-import { useState } from 'react';
-// import styles from '../styles/Home.module.scss';
+import styles from '../styles/Home.module.scss';
 
 export default function Home() {
-  const [count, setCount] = useState(0);
-
   return (
-    <div className="">
+    <div id={styles.app}>
       <Head>
         <title>sei-whale</title>
       </Head>
-      <h1>Sei Whale Service!!</h1>
-      <div>{count}</div>
-      <button
-        type="button"
-        onClick={() => {
-          setCount(count + 1);
-        }}
-      >
-        증가
-      </button>
+      <header>
+        <h1 className="service-title">sei-whale 추천 서비스 입니다.</h1>
+        <div className={styles.layoutBoundary}></div>
+      </header>
+      <div className={styles.contents}>
+        <div className={styles.layoutBoundary}></div>
+      </div>
+      <footer>
+        <div className={styles.layoutBoundary}></div>
+      </footer>
     </div>
   );
 }
