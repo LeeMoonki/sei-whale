@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "prepare": "cd ../../ && husky install services/webapp/.husky",
     "dev": "next dev -p 8080",
     "build": "next build",
     "start": "next start",
