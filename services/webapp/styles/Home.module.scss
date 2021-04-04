@@ -6,11 +6,6 @@
 .header {
   padding: 15px 0 20px;
 }
-.layoutBoundary {
-  margin: 0 auto;
-  width: $serviceWidth;
-  max-width: $serviceWidth;
-}
 
 .inputSearch {
   padding: 8px 15px;
@@ -26,4 +21,10 @@
   height: 150px;
   border: 1px solid #dedede;
   resize: none;
+}
+
+.recommendCards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }

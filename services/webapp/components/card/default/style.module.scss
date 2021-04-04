@@ -1,0 +1,31 @@
+@import '../../../styles/presets/colors.scss';
+
+.card {
+  padding: 15px 20px;
+  width: 270px;
+  height: 340px;
+  cursor: pointer;
+  background-color: #fff;
+  border-radius: 4px;
+}
+.title {
+  display: none;
+  overflow: hidden;
+  width: 0;
+  height: 0;
+}
+.keywords {
+  display: flex;
+  flex-direction: row;
+}
+.keyword {
+  margin-right: 7px;
+  padding: 5px 8px;
+  color: #fff;
+  background-color: $secondary;
+  border-radius: 3px;
+}
+.recommendation {
+  margin-top: 17px;
+  width: 100%;
+}

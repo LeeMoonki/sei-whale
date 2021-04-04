@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.scss';
+import Card from '../components/card';
 
 export default function Home() {
   return (
@@ -9,7 +10,7 @@ export default function Home() {
       </Head>
       <header className={styles.header}>
         <h1 className="service-title">sei-whale 추천 서비스 입니다.</h1>
-        <section className={styles.layoutBoundary}>
+        <div className="layoutBoundary">
           <input className={styles.inputSearch} type="text" placeholder="검색하고 찾아보세요" />
           <section className={styles.recommend}>
             <textarea
@@ -17,13 +18,20 @@ export default function Home() {
               placeholder="어떤걸 공유하고 싶으세요?"
             ></textarea>
           </section>
-        </section>
+        </div>
       </header>
-      <section className={styles.contents}>
-        <section className={styles.layoutBoundary}></section>
-      </section>
+      <main className={styles.contents}>
+        <div className="layoutBoundary">
+          <section className={styles.recommendCards}>
+            <Card
+              keywords={['아이템1', '아이템2']}
+              recommendation={'이러저러한 이 책을 추천합니다.'}
+            />
+          </section>
+        </div>
+      </main>
       <footer>
-        <section className={styles.layoutBoundary}></section>
+        <div className="layoutBoundary"></div>
       </footer>
     </div>
   );

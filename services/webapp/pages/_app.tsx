@@ -7,7 +7,7 @@
  */
 import type { AppProps /*, AppContext */ } from 'next/app';
 import '../styles/globals/reset.css';
-import '../styles/globals/index.css';
+import '../styles/globals/index.scss';
 
 function MyApp({ Component, pageProps }: AppProps) {
   // Component는 렌더링 될 페이지이다.

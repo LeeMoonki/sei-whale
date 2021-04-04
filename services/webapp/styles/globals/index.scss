@@ -1,3 +1,6 @@
+@import '../presets/sizes.scss';
+@import '../presets/colors.scss';
+
 html {
 	font-size: 16px;
 	box-sizing: border-box;
@@ -7,6 +10,13 @@ html * {
 }
 body {
   font-family: 'SpoqaHanSansNeo-Regular', 'Arial';
+  background-color: $bg;
+}
+
+.layoutBoundary {
+  margin: 0 auto;
+  width: $serviceWidth;
+  max-width: $serviceWidth;
 }
 
 .service-title {
