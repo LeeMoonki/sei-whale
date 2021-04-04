@@ -1,3 +1,14 @@
+html {
+	font-size: 16px;
+	box-sizing: border-box;
+}
+html * {
+	box-sizing: inherit;
+}
+body {
+  font-family: 'SpoqaHanSansNeo-Regular', 'Arial';
+}
+
 .service-title {
   display: none;
   width: 0;
