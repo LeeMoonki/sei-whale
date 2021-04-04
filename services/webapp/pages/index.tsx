@@ -7,15 +7,23 @@ export default function Home() {
       <Head>
         <title>sei-whale</title>
       </Head>
-      <header>
+      <header className={styles.header}>
         <h1 className="service-title">sei-whale 추천 서비스 입니다.</h1>
-        <div className={styles.layoutBoundary}></div>
+        <section className={styles.layoutBoundary}>
+          <input className={styles.inputSearch} type="text" placeholder="검색하고 찾아보세요" />
+          <section className={styles.recommend}>
+            <textarea
+              className={styles.recommendArea}
+              placeholder="어떤걸 공유하고 싶으세요?"
+            ></textarea>
+          </section>
+        </section>
       </header>
-      <div className={styles.contents}>
-        <div className={styles.layoutBoundary}></div>
-      </div>
+      <section className={styles.contents}>
+        <section className={styles.layoutBoundary}></section>
+      </section>
       <footer>
-        <div className={styles.layoutBoundary}></div>
+        <section className={styles.layoutBoundary}></section>
       </footer>
     </div>
   );

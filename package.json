@@ -5,8 +5,9 @@
   "scripts": {
     "db": "docker-compose -f ./mariadb/docker-compose.yml up -d",
     "db:stop": "docker-compose -f ./mariadb/docker-compose.yml stop",
-    "start": "docker-compose up -d",
+    "build": "docker-compose up -d",
     "start:rebuild": "docker-compose up --build -d && docker rmi -f $(docker images -f \"dangling=true\" -q)",
+    "start": "docker-compose start",
     "stop": "docker-compose stop",
     "down": "docker-compose down"
   },

@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "start": "nodemon"
+    "start": "nodemon",
+    "dev": "nodemon"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",

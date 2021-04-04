@@ -65,14 +65,16 @@ img {
 input {
 	margin: 0;
 	padding: 0;
-	vertical-align: top;
 	appearance: none;
 	border: 1px solid #dedede;
 	color: inherit;
 	border-radius: 0;
-	font-family: inherit;
-	font-size: inherit
+	font: inherit;
 }
-input:focus {
+input:focus, textarea:focus {
 	outline: none;
+}
+
+textarea {
+	font: inherit;
 }
