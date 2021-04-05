@@ -10,8 +10,10 @@ export default function Home() {
       </Head>
       <header className={styles.header}>
         <h1 className="service-title">sei-whale 추천 서비스 입니다.</h1>
-        <div className="layoutBoundary">
+        <section className={styles.gnb}>
           <input className={styles.inputSearch} type="text" placeholder="검색하고 찾아보세요" />
+        </section>
+        <div className="layoutBoundary">
           <section className={styles.recommend}>
             <textarea
               className={styles.recommendArea}
