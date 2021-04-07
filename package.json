@@ -11,5 +11,6 @@
     "stop": "docker-compose stop",
     "down": "docker-compose down"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {}
 }
