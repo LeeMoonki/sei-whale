@@ -30,6 +30,8 @@ const db = (function() {
     return Promise.resolve();
   };
 
+  const hasPool = () => !!pool;
+
   const query = (query: string) => {
     if (guardPool(pool)) {
       return pool.query(query);
@@ -40,6 +42,7 @@ const db = (function() {
 
   return {
     init,
+    hasPool,
     query,
   };
 })();
