@@ -1,0 +1,1 @@
+- [fastify-plugin](https://github.com/fastify/fastify-plugin)

@@ -7,9 +7,9 @@ import db from './db';
 
 import { FastifyInstance } from './types';
 
-import loginAPI from './routes/login';
-import echoAPI from './routes/echo';
-import userAPI from './routes/users';
+import registRoutesPlugin from './plugins/registRoutesPlugin';
+
+
 
 /** 환경변수 설정 */
 dotenv.config();
@@ -46,9 +46,7 @@ app.register(fastifyCors, {
 });
 
 /** 라우트 */
-app.register(loginAPI.routes, loginAPI.options);
-app.register(echoAPI.routes, echoAPI.options);
-app.register(userAPI.routes, userAPI.options);
+app.register(registRoutesPlugin);
 
 /** 앱 준비 함수 */
 function prepare() {
