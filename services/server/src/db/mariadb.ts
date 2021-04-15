@@ -20,6 +20,7 @@ const db = (function() {
 
       if (!pinged) {
         const pingConnection = await pool.getConnection();
+        pinged = true;
         pingConnection.ping()
           .then(() => console.info('🗄️    Database has been connected!'))
           .catch(() => console.error('🗄️    Connecting to the database failed!'))
@@ -32,18 +33,42 @@ const db = (function() {
 
   const hasPool = () => !!pool;
 
-  const query = (query: string) => {
+  const query = (query: string | mariadb.QueryOptions, values?: any) => {
     if (guardPool(pool)) {
-      return pool.query(query);
+      return pool.query(query, values);
     }
 
     return Promise.resolve({ success: false });
   };
 
+  const activeConnections = () => {
+    if (guardPool(pool)) {
+      return pool.activeConnections();
+    }
+    return 0;
+  };
+
+  const totalConnections = () => {
+    if (guardPool(pool)) {
+      return pool.totalConnections();
+    }
+    return 0;
+  };
+
+  const conn = () => {
+    if (guardPool(pool)) {
+      return pool.getConnection();
+    }
+    return Promise.reject(); // error code table 필요
+  };
+
   return {
     init,
     hasPool,
+    conn,
     query,
+    activeConnections,
+    totalConnections
   };
 })();
 

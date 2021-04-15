@@ -13,6 +13,8 @@ async function routes(fastify: FastifyInstance): Promise<void> {
       echo: 1,
       q: request.query,
       rows,
+      activeConn: db.activeConnections(),
+      totalConn: db.totalConnections(),
     };
   });
 }

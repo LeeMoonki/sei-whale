@@ -7,8 +7,9 @@ import db from './db';
 
 import { FastifyInstance } from './types';
 
-import loginApi from './routes/login';
-import echoApi from './routes/echo';
+import loginAPI from './routes/login';
+import echoAPI from './routes/echo';
+import userAPI from './routes/users';
 
 /** 환경변수 설정 */
 dotenv.config();
@@ -45,8 +46,9 @@ app.register(fastifyCors, {
 });
 
 /** 라우트 */
-app.register(loginApi.routes, loginApi.options);
-app.register(echoApi.routes, echoApi.options);
+app.register(loginAPI.routes, loginAPI.options);
+app.register(echoAPI.routes, echoAPI.options);
+app.register(userAPI.routes, userAPI.options);
 
 /** 앱 준비 함수 */
 function prepare() {

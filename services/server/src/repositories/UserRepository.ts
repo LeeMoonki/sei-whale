@@ -11,8 +11,18 @@ export interface IUserRepository {
 }
 
 class UserRepository implements IUserRepository {
-  Save() {
-    console.log(db.hasPool());
+  Save(user: UserSave) {
+    db.conn()
+      .then(async conn => {
+        let result;
+        try {
+          result = await conn.query('INSERT INTO users (email, password, name) VALUES (?, ?, ?)', [user.email, user.password, user.name]);
+        } catch (e) {
+          console.error('UserRepository Save Error', e);
+        } finally {
+          conn.release();
+        }
+      });
   }
 }
 
