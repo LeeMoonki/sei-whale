@@ -1,4 +1,10 @@
-import mariadb, { Pool } from 'mariadb';
+import mariadb, { Pool, PoolConnection } from 'mariadb';
+
+export interface ConnAsyncParams {
+  connCallback: (conn: PoolConnection) => void;
+  catch: (error: any) => void;
+  finally?: () => void;
+}
 
 const db = (function() {
   let pool: null | Pool = null;
@@ -62,10 +68,28 @@ const db = (function() {
     return Promise.reject(); // error code table 필요
   };
 
+  const connAsync = async ({ connCallback, catch: catchCallback, finally: finallyCallback }: ConnAsyncParams) => {
+    if (guardPool(pool)) {
+      const conn = await pool.getConnection();
+
+      try {
+        return await connCallback(conn);
+      } catch (error) {
+        return await catchCallback(error);
+      } finally {
+        conn.release();
+        finallyCallback && finallyCallback();
+      }
+
+    }
+    return Promise.reject(); // error code table 필요
+  };
+
   return {
     init,
     hasPool,
     conn,
+    connAsync,
     query,
     activeConnections,
     totalConnections
