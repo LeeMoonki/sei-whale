@@ -4,7 +4,7 @@
  * <Head /> 컴포넌트는 모든 페이지에 적용되는 <head> 코드를 정의하는 경우에만 사용한다.
  * 그렇지 않은 경우 (<title> 같이) next/head를 사용하자.
  */
-import Document, { Html, Head, Main, NextScript, DocumentContext } from "next/document";
+import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document';
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -16,7 +16,7 @@ class MyDocument extends Document {
     return (
       <Html lang="ko">
         <Head>
-          <link rel="shortcut icon" href="favicon.ico"/>
+          <link rel="shortcut icon" href="favicon.ico" />
         </Head>
         <body>
           <Main />

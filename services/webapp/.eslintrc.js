@@ -25,7 +25,7 @@ module.exports = {
         'plugin:react-hooks/recommended', // React hooks rules
         'plugin:jsx-a11y/recommended', // Accessibility rules
         'plugin:prettier/recommended', // Prettier plugin
-        // 'eslint-config-prettier',
+        'prettier'
       ],
       rules: {
         // We will use TypeScript's types for component props instead
