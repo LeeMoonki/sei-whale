@@ -9,24 +9,21 @@ import { FastifyInstance } from './types';
 
 import registRoutesPlugin from './plugins/registRoutesPlugin';
 
-
-
 /** 환경변수 설정 */
 dotenv.config();
 
 /** fastify 설정 */
-const app: FastifyInstance = fastify({ logger: {
-  prettyPrint: true
-} });
+const app: FastifyInstance = fastify({
+  logger: {
+    prettyPrint: true,
+  },
+});
 
 /** mariadb 연결 */
 db.init();
 
 /** 교차출처 화이트리스트 */
-const whiteList: RegExp[] = [
-  /http.+localhost:[\d]+/,
-  /http.+127\.0\.0\.1:[\d]+/,
-];
+const whiteList: RegExp[] = [/http.+localhost:[\d]+/, /http.+127\.0\.0\.1:[\d]+/];
 
 /** 앱설정 */
 app.register(fastifyFormbody);
@@ -42,7 +39,7 @@ app.register(fastifyCors, {
     }
 
     passCallback(new Error('Not Allowed to Access'), false);
-  }
+  },
 });
 
 /** 라우트 */

@@ -2,12 +2,10 @@ import app from './src/app';
 
 const fastify = app();
 const envPORT = process.env.PORT;
-const PORT =
-  (typeof envPORT === 'string' || typeof envPORT === 'number' ? envPORT : null)
-  || 3000;
+const PORT = (typeof envPORT === 'string' || typeof envPORT === 'number' ? envPORT : null) || 3000;
 
 function start(port: number | string) {
-  fastify.listen(port, '0.0.0.0', function(err, address) {
+  fastify.listen(port, '0.0.0.0', function (err, address) {
     if (err) {
       fastify.log.error(err.message);
       process.exit(1);

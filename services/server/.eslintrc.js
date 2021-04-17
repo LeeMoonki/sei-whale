@@ -1,17 +1,13 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    ecmaVerseion: 8
+    ecmaVerseion: 8,
   },
   env: {
-    node: true
+    node: true,
   },
-  extends: [
-    'plugin:@typescript-eslint/recommended',
-    'plugin:prettier/recommended',
-    'prettier/@typescript-eslint',
-  ],
+  extends: ['plugin:@typescript-eslint/recommended', 'plugin:prettier/recommended', 'prettier'],
   rules: {
     'prettier/prettier': ['error', {}, { usePrettierrc: true }],
-  }
+  },
 };

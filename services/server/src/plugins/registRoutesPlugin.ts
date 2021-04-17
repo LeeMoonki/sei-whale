@@ -9,6 +9,6 @@ const registRoutesPlugin: FastifyPluginAsync = async (fastify, _) => {
   fastify.register(loginAPI.routes, loginAPI.options);
   fastify.register(echoAPI.routes, echoAPI.options);
   fastify.register(userAPI.routes, userAPI.options);
-}
+};
 
 export default fp(registRoutesPlugin);
