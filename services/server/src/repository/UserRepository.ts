@@ -2,7 +2,10 @@ import db from '../db';
 import { AND } from './lib/And';
 import User from '../entity/User';
 import { BaseError } from '../error';
-import { UserRepositoryFindError, UserRepositorySaveError } from '../error/repository/UserRepositoryError';
+import {
+  UserRepositoryFindError,
+  UserRepositorySaveError,
+} from '../error/repository/UserRepositoryError';
 
 export interface UserRepoSave {
   name: string;

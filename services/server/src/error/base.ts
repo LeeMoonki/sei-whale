@@ -14,9 +14,15 @@ export abstract class BaseError {
     this._object = errorObject;
   }
 
-  get code() { return this._code; }
-  get message() { return this._message; }
-  get objct() { return this._object; }
+  get code() {
+    return this._code;
+  }
+  get message() {
+    return this._message;
+  }
+  get objct() {
+    return this._object;
+  }
 
   /** 전달받은 에러와 같은 에러인지 판단 */
   isErrorOf(error: BaseError) {
