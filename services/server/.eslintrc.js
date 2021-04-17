@@ -9,5 +9,7 @@ module.exports = {
   extends: ['plugin:@typescript-eslint/recommended', 'plugin:prettier/recommended', 'prettier'],
   rules: {
     'prettier/prettier': ['error', {}, { usePrettierrc: true }],
+
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
   },
 };
