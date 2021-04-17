@@ -6,6 +6,7 @@
     "build": "tsc -p tsconfig.json",
     "start": "nodemon",
     "dev": "nodemon",
+    "lint-staged": "lint-staged",
     "prettier": "prettier --write ./src",
     "eslint": "eslint ./src"
   },
