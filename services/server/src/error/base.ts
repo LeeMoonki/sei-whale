@@ -27,4 +27,4 @@ export abstract class BaseError {
 /** BaseError type guard */
 export const isError = (error: unknown): error is BaseError => {
   return error instanceof BaseError;
-}
+};
