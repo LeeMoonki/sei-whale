@@ -40,6 +40,10 @@ const db = (function () {
     return Promise.resolve();
   };
 
+  const close = async () => {
+    return await pool?.end();
+  };
+
   const hasPool = () => !!pool;
 
   const query = (query: string | mariadb.QueryOptions, values?: any) => {
@@ -77,6 +81,7 @@ const db = (function () {
 
   return {
     init,
+    close,
     hasPool,
     conn,
     query,

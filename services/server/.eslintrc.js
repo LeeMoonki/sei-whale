@@ -10,6 +10,7 @@ module.exports = {
   rules: {
     'prettier/prettier': ['error', {}, { usePrettierrc: true }],
 
+    '@typescript-eslint/no-empty-interface': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
   },
 };

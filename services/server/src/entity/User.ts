@@ -1,23 +1,27 @@
 class User {
-  private _id: number;
-  private _name: string;
-  private _email: string;
-  private _signupDate: string;
+  private readonly _id: number;
+  private readonly _name: string;
+  private readonly _email: string;
+  private readonly _password?: string;
+  private readonly _signupDate: string;
 
   constructor({
     id,
     name,
     email,
+    password,
     signupDate,
   }: {
     id: number;
     name: string;
     email: string;
+    password?: string;
     signupDate: string;
   }) {
     this._id = id;
     this._name = name;
     this._email = email;
+    this._password = password;
     this._signupDate = signupDate;
   }
 
@@ -32,6 +36,9 @@ class User {
   }
   get signupDate() {
     return this._signupDate;
+  }
+  get password() {
+    return this._password;
   }
 }
 

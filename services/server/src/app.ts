@@ -7,7 +7,10 @@ import db from './db';
 
 import { FastifyInstance } from './types';
 
+import UserApplicationService from './services/app/UserApplicationService';
+
 import registRoutesPlugin from './plugins/registRoutesPlugin';
+import registApplicationServicesPlugin from './plugins/registServicesPlugin';
 
 /** 환경변수 설정 */
 dotenv.config();
@@ -42,6 +45,11 @@ app.register(fastifyCors, {
   },
 });
 
+/** Application Service 설정 */
+app.register(registApplicationServicesPlugin, {
+  UserApplicationService: new UserApplicationService(),
+});
+
 /** 라우트 */
 app.register(registRoutesPlugin);
 
@@ -49,5 +57,9 @@ app.register(registRoutesPlugin);
 function prepare() {
   return app;
 }
+
+app.addHook('onClose', () => {
+  db.close();
+});
 
 export default prepare;

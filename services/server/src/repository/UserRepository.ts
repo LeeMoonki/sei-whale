@@ -53,6 +53,7 @@ class UserRepository implements IUserRepository {
         id: result.id,
         name: result.name,
         email: result.email,
+        password: result.password,
         signupDate: result.cdate,
       });
 

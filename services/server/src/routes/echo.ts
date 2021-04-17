@@ -3,7 +3,7 @@ import { apiOptions } from './lib/apiOptions';
 import db from '../db';
 
 async function routes(fastify: FastifyInstance): Promise<void> {
-  fastify.get('/', async (request, reply) => {
+  fastify.get('/', async function (request, reply) {
     request.log.info('echo-whale info : ', request.query);
 
     const rows = await db.query('SELECT NOW();');
