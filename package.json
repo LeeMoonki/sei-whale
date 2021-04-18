@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "db": "docker-compose -f ./mariadb/docker-compose.yml up -d",
+    "db": "sh ./mariadb/reset.sh",
     "db:stop": "docker-compose -f ./mariadb/docker-compose.yml stop",
     "build": "docker-compose up -d",
     "start:rebuild": "docker-compose up --build -d && docker rmi -f $(docker images -f \"dangling=true\" -q)",
