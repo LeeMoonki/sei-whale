@@ -2,6 +2,7 @@
   "name": "server",
   "version": "1.0.0",
   "private": true,
+  "types": "index.d.ts",
   "scripts": {
     "prepare": "cd ../../ && husky install services/server/.husky",
     "build": "tsc -p tsconfig.json",
