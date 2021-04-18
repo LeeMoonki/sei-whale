@@ -48,7 +48,8 @@ class UserRepository implements IUserRepository {
 
     try {
       conn = await db.conn();
-      const result = await conn.query(`SELECT * FROM users WHERE ${AND(user)};`);
+      const result = (await conn.query(`SELECT * FROM users WHERE ${AND(user)};`))[0];
+
       const userResult = new User({
         id: result.id,
         name: result.name,

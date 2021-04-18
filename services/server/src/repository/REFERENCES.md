@@ -1,0 +1,1 @@
+- [mariadb package doc](https://github.com/mariadb-corporation/mariadb-connector-nodejs/blob/master/documentation/promise-api.md)

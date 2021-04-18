@@ -1,4 +1,4 @@
-import { BaseError, isError } from '../../error';
+import { isError } from '../../error';
 import UserRepository, { IUserRepository, UserRepoSave } from '../../repository/UserRepository';
 import { encryptPassword, matchPassword } from '../../lib/password';
 
@@ -24,15 +24,16 @@ class UserApplicationService implements IUserApplicationService {
       return Promise.resolve(false);
     }
 
-    const match = await matchPassword(user.password, password);
+    const match = await matchPassword(password, user.password);
 
     return match;
   }
 
   /** 회원가입 서비스 */
   async Signup(user: SignupParams) {
-    const encrytedPassword = await encryptPassword(user.password);
-    const result = await this.userRepo.Save({ ...user, password: encrytedPassword });
+    const encryptedPassword = await encryptPassword(user.password);
+    const userToSave = { ...user, password: encryptedPassword };
+    const result = await this.userRepo.Save(userToSave);
 
     if (isError(result)) {
       return Promise.resolve(false);

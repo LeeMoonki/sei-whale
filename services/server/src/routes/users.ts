@@ -1,5 +1,5 @@
 // signup: POST /users
-import { FastifyInstance } from '../types';
+import { FastifyInstance } from 'fastify';
 import { apiOptions } from './lib/apiOptions';
 import bcrypt from 'bcrypt';
 
@@ -16,17 +16,16 @@ interface IQueryString {
 }
 
 async function routes(fastify: FastifyInstance): Promise<void> {
-  fastify.post<{ Body: IBody }>('/', async (request, reply) => {
+  /** 회원가입 */
+  fastify.post<{ Body: IBody }>('/signup', async function (request, reply) {
     const { email, password, name } = request.body;
-    const encrytedPassword = await bcrypt.hash(password, 10);
-    const userRepo = new UserRepo();
+    const result = await this.services.user.Signup({ email, password, name });
 
-    userRepo.Save({ email, password: encrytedPassword, name });
-
-    return {};
+    return { success: result };
   });
 
-  fastify.get<{ Querystring: IQueryString }>('/', async (request, reply) => {
+  /** email로 회원 조회(임시) */
+  fastify.get<{ Querystring: IQueryString }>('/', async function (request, reply) {
     const { email } = request.query;
 
     const userRepo = new UserRepo();
