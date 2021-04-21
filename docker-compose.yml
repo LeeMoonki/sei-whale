@@ -1,22 +1,26 @@
 version: "3"
 services:
   servicebackend:
+    container_name: seiwhale-backend
     build:
       dockerfile: Dockerfile.dev
       context: ./services/server
-    container_name: seiwhale-backend
     volumes:
       - /app/node_modules
       - ./services/server:/app
-    ports:
-      - "3000:3000"
   servicefrontend:
+    container_name: seiwhale-frontend
     build:
       dockerfile: Dockerfile.dev
       context: ./services/webapp
-    container_name: seiwhale-frontend
     volumes:
       - /app/node_modules
       - ./services/webapp:/app
+  nginx:
+    container_name: seiwhale-nginx
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: ./services/nginx
     ports:
-      - "8080:8080"
+      - "7070:80"
