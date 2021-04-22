@@ -8,7 +8,11 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "types": ["@types/node"],
+    "typeRoots": [
+      // --files 를 사용해서 ts-node를 동작시키면 없어도 되는 설정이지만 명목적으로 작성한다.
+      "./@types",
+      "./node_modules/@types"
+    ],
   },
   "exclude": ["node_modules"],
 }
