@@ -33,3 +33,5 @@ export type RawReplyDefaultExpression<
   : RawServer extends http2.Http2Server | http2.Http2SecureServer
   ? http2.Http2ServerResponse
   : never;
+
+export type IncomingMessage = http.IncomingMessage;

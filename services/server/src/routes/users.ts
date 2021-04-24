@@ -1,7 +1,6 @@
 // signup: POST /users
 import { FastifyInstance } from 'fastify';
 import { apiOptions } from './lib/apiOptions';
-import bcrypt from 'bcrypt';
 
 import UserRepo from '../repository/UserRepository';
 

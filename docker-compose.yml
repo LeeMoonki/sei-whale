@@ -16,6 +16,9 @@ services:
     volumes:
       - /app/node_modules
       - ./services/webapp:/app
+  serviceredis:
+    container_name: seiwhale-redis
+    image: "redis"
   nginx:
     container_name: seiwhale-nginx
     restart: always

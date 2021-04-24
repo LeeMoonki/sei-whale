@@ -15,7 +15,7 @@
     ],
   },
   "typeAcquisition": {
-    "exclude": ["dotenv"]
+    "exclude": ["dotenv", "redis"]
   },
   "exclude": ["node_modules"],
 }

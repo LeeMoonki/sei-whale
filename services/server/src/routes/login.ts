@@ -12,7 +12,11 @@ async function routes(fastify: FastifyInstance): Promise<void> {
 
     const successToLogin = await this.services.user.Login(email, password);
 
-    return { success: successToLogin };
+    if (successToLogin) {
+      reply.header('Set-Cookie', ['foo=bar;HttpOnly;path=/;']).send({ success: successToLogin });
+    } else {
+      reply.send({ success: successToLogin });
+    }
   });
 }
 
