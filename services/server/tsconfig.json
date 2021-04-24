@@ -14,5 +14,8 @@
       "./node_modules/@types"
     ],
   },
+  "typeAcquisition": {
+    "exclude": ["dotenv"]
+  },
   "exclude": ["node_modules"],
 }

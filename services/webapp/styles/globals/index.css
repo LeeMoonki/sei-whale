@@ -8,9 +8,3 @@ html * {
 body {
   font-family: 'SpoqaHanSansNeo-Regular', 'Arial';
 }
-
-.service-title {
-  display: none;
-  width: 0;
-  height: 0;
-}

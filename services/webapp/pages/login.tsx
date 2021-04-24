@@ -17,8 +17,12 @@ export default function Home() {
       body: JSON.stringify(body),
     })
       .then((res) => res.json())
-      .then((result) => {
-        console.log('result : ', result);
+      .then(({ success }) => {
+        if (success) {
+          location.href = '/';
+        } else {
+          alert('로그인 실패');
+        }
       });
   };
 
