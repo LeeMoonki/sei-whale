@@ -19,7 +19,8 @@ export default function Home() {
       .then((res) => res.json())
       .then(({ success }) => {
         if (success) {
-          location.href = '/';
+          // location.href = '/';
+          alert('성공');
         } else {
           alert('로그인 실패');
         }

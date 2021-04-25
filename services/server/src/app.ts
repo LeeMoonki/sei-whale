@@ -13,6 +13,7 @@ import registRedisPlugin from './plugins/registRedisPlugin';
 import registRoutesPlugin from './plugins/registRoutesPlugin';
 import registApplicationServicesPlugin from './plugins/registServicesPlugin';
 import sessionPlugin from './plugins/sessionPlugin';
+import decorateReplyPlugin from './plugins/decorateReplyPlugin';
 
 /** 환경변수 설정 */
 dotenv.config();
@@ -50,6 +51,9 @@ app.register(fastifyCors, {
 // plugin 등록
 
 app.register(registRedisPlugin); // redis 설정
+
+app.register(decorateReplyPlugin); // reply plugin 들을 등록
+
 app.register(sessionPlugin); // session
 
 /** Application Service 설정 */

@@ -9,6 +9,16 @@ export default function Home() {
         <title>sei-whale</title>
       </Head>
       <a href="/login">로그인</a>
+      <button
+        type="button"
+        onClick={() => {
+          fetch('http://localhost:7070/api/echo-whale')
+            .then((r) => r.json())
+            .then((result) => console.log(result));
+        }}
+      >
+        Request
+      </button>
     </div>
   );
 }

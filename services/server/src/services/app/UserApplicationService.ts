@@ -1,11 +1,12 @@
 import { isError } from '../../error';
 import UserRepository, { IUserRepository, UserRepoSave } from '../../repository/UserRepository';
 import { encryptPassword, matchPassword } from '../../lib/password';
+import User from '../../entity/User';
 
 type SignupParams = UserRepoSave;
 
 export interface IUserApplicationService {
-  Login: (email: string, password: string) => Promise<boolean>;
+  Login: (email: string, password: string) => Promise<User | null>;
   Signup: (user: SignupParams) => Promise<boolean>;
 }
 
@@ -21,12 +22,12 @@ class UserApplicationService implements IUserApplicationService {
     const user = await this.userRepo.Find({ email });
 
     if (isError(user) || !user.password) {
-      return Promise.resolve(false);
+      return Promise.resolve(null);
     }
 
     const match = await matchPassword(password, user.password);
 
-    return match;
+    return match ? user : null;
   }
 
   /** 회원가입 서비스 */
