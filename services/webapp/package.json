@@ -4,13 +4,15 @@
   "private": true,
   "scripts": {
     "prepare": "cd ../../ && husky install services/webapp/.husky",
-    "dev": "next dev -p 8080",
-    "build": "next build",
-    "start": "next start",
+    "dev": "yarn dotenv && next dev -p 8080",
+    "build": "yarn dotenv && next build",
+    "start": "yarn dotenv && next start",
     "prettier": "prettier --write .",
-    "eslint": "eslint --fix"
+    "eslint": "eslint --fix",
+    "dotenv": "node -r dotenv/config"
   },
   "dependencies": {
+    "dotenv": "^8.2.0",
     "next": "10.0.9",
     "react": "17.0.1",
     "react-dom": "17.0.1"

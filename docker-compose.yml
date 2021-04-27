@@ -8,6 +8,8 @@ services:
     volumes:
       - /app/node_modules
       - ./services/server:/app
+    expose:
+      - "3000"
   servicefrontend:
     container_name: seiwhale-frontend
     build:
@@ -16,6 +18,8 @@ services:
     volumes:
       - /app/node_modules
       - ./services/webapp:/app
+    expose:
+      - "8080"
   serviceredis:
     container_name: seiwhale-redis
     image: "redis"
@@ -27,3 +31,5 @@ services:
       context: ./services/nginx
     ports:
       - "7070:80"
+    expose:
+      - "80"

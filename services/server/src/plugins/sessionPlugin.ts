@@ -28,16 +28,21 @@ const sessionPlugin: FastifyPluginAsync = async function (fastify) {
   fastify.addHook('preHandler', async function (request) {
     if (isFastifySessionHandlerMiddlewareInstance(fastify)) {
       const sid = parse(request.headers.cookie || '')[process.env.SESSION_KEY as string];
-      const userId = await promisify(fastify.redis.get).bind(fastify.redis)(sid);
-      let sessionUser: SessionUser | null = null;
 
-      if (userId) {
-        sessionUser = {
-          id: parseInt(userId),
-        };
+      try {
+        const userId = await promisify(fastify.redis.get).bind(fastify.redis)(sid || '');
+        let sessionUser: SessionUser | null = null;
+
+        if (userId) {
+          sessionUser = {
+            id: parseInt(userId),
+          };
+        }
+
+        fastify.extendRequest(request, 'user', sessionUser);
+      } catch (err) {
+        console.error('redis에 접근하는데 문제가 발생했습니다.', err);
       }
-
-      fastify.extendRequest(request, 'user', sessionUser);
     }
   });
 };

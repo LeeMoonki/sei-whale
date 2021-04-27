@@ -1,6 +1,7 @@
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import styles from '../styles/Home.module.scss';
+import { api } from '../lib/api';
 
 export default function Home() {
   return (
@@ -12,9 +13,7 @@ export default function Home() {
       <button
         type="button"
         onClick={() => {
-          fetch('http://localhost:7070/api/echo-whale')
-            .then((r) => r.json())
-            .then((result) => console.log(result));
+          api.f.get('/echo-whale', null).then((result) => console.log('!!!', result));
         }}
       >
         Request
@@ -24,7 +23,9 @@ export default function Home() {
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ req }) => {
-  console.log('====== getServerSideProps of Index : ', req.headers.cookie);
+  api.s
+    .get('/echo-whale', null, { cookie: req.headers.cookie })
+    .then((result) => console.log('######## shoot in getServerSideProps', result));
 
   return {
     props: {},

@@ -52,7 +52,7 @@ app.register(fastifyCors, {
 
 app.register(registRedisPlugin); // redis 설정
 
-app.register(decorateReplyPlugin); // reply plugin 들을 등록
+app.register(decorateReplyPlugin); // reply decorator들을 등록
 
 app.register(sessionPlugin); // session
 
