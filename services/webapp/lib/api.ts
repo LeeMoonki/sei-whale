@@ -43,7 +43,7 @@ export const api = (function () {
     }
 
     for (const k in qo) {
-      qsarr.push([k, qo[k]]);
+      qsarr.push(`${k}=${encodeURIComponent(qo[k])}`);
     }
 
     if (qsarr.length > 0) {
