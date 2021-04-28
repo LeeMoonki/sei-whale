@@ -10,8 +10,11 @@
     "up:build": "docker-compose up --build",
     "start": "docker-compose up",
     "stop": "docker-compose stop",
-    "down": "docker-compose down"
+    "down": "docker-compose down",
+    "prepare": "husky install"
   },
   "license": "MIT",
-  "devDependencies": {}
+  "devDependencies": {
+    "husky": "^6.0.0"
+  }
 }

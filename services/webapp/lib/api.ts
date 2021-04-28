@@ -29,29 +29,30 @@ export interface BaseResponse {
   [key: string]: any;
 }
 
+export const getQs = (qo: QueryStrings | null) => {
+  let queryString = '';
+  const qsarr = [];
+
+  if (!qo) {
+    return '';
+  }
+
+  for (const k in qo) {
+    qsarr.push(`${k}=${encodeURIComponent(qo[k])}`);
+  }
+
+  if (qsarr.length > 0) {
+    queryString = `?${qsarr.join('&')}`;
+  }
+
+  return queryString;
+};
+
 export const api = (function () {
   const getHost = (type: CallType) =>
     type === 'server' ? (process.env.API_URL_IN_SERVER as string) : 'http://localhost:7070/api/';
   const resolve = (url: string) => url.replace(/(\w)[/]{2,}(\w)/g, '$1/$2').replace(/\/$/, '');
   const apiurl = (hostAndPrefix: string, u: string) => resolve(`${hostAndPrefix}/${u}`);
-  const getQs = (qo: QueryStrings | null) => {
-    let queryString = '';
-    const qsarr = [];
-
-    if (!qo) {
-      return '';
-    }
-
-    for (const k in qo) {
-      qsarr.push(`${k}=${encodeURIComponent(qo[k])}`);
-    }
-
-    if (qsarr.length > 0) {
-      queryString = `?${qsarr.join('&')}`;
-    }
-
-    return queryString;
-  };
 
   const makeRequestWithoutBody = (method: 'GET' | 'DELETE', type: CallType) => {
     const host = getHost(type);

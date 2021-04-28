@@ -4,13 +4,14 @@
   "private": true,
   "types": "index.d.ts",
   "scripts": {
-    "prepare": "cd ../../ && husky install services/server/.husky",
     "build": "tsc -p tsconfig.json",
     "start": "nodemon",
     "dev": "nodemon",
     "lint-staged": "lint-staged",
     "prettier": "prettier --write ./src",
-    "eslint": "eslint ./src"
+    "eslint": "eslint ./src",
+    "test": "jest",
+    "test:watch": "jest --watch --coverage"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
@@ -29,6 +30,7 @@
   "devDependencies": {
     "@types/bcrypt": "^3.0.0",
     "@types/busboy": "^0.2.3",
+    "@types/jest": "^26.0.23",
     "@types/node": "^14.14.31",
     "@types/redis": "^2.8.28",
     "@types/uuid": "^8.3.0",
@@ -38,8 +40,10 @@
     "eslint-config-prettier": "^8.2.0",
     "eslint-plugin-prettier": "^3.4.0",
     "husky": "^6.0.0",
+    "jest": "^26.6.3",
     "lint-staged": ">=10",
     "prettier": "^2.2.1",
+    "ts-jest": "^26.5.5",
     "ts-node": "^9.1.1",
     "typescript": "^4.2.2"
   }
