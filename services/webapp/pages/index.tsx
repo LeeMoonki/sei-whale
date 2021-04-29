@@ -1,7 +1,7 @@
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
-import styles from '../styles/Home.module.scss';
-import Logo from '../components/Logo';
+import styles from '../styles/pages/Home.module.scss';
+import { AppPageProps } from './_app';
 
 export default function Home() {
   return (
@@ -9,23 +9,22 @@ export default function Home() {
       <Head>
         <title>Gomawo</title>
       </Head>
-      <header>
-        <Logo />
-        <input type="text" />
-        <button type="button">작성</button>
-        <button type="button">로그인</button>
-      </header>
-      <main id="main"></main>
     </div>
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps<AppPageProps> = async () => {
   // api.s
   //   .get('/echo-whale', null, { cookie: req.headers.cookie })
   //   .then((result) => console.log('######## shoot in getServerSideProps', result));
 
+  const domain = process.env.DOMAIN as string;
+
   return {
-    props: {},
+    props: {
+      // _app pageProps
+      layout: 'base',
+      host: domain,
+    },
   };
 };

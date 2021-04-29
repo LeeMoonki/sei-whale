@@ -1,3 +1,14 @@
+@import '../../styles/presets/colors.scss';
+
 .logo {
-  background-color: #ddd;
+  padding: 8px 15px;
+  width: 7rem;
+}
+.logo > a {
+  text-align: center;
+  color: $secondary;
+}
+.logo span {
+  color: $primary;
+  font-weight: 500;
 }

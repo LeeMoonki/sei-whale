@@ -1,12 +1,16 @@
 import style from './style.module.scss';
 
-export default function Logo() {
+interface LogoProps {
+  host: string;
+}
+
+export default function Logo({ host }: LogoProps) {
   return (
     <section className={style.logo}>
-      <p>
+      <a href={host}>
         <span>G</span>
-        omaow
-      </p>
+        omawo
+      </a>
     </section>
   );
 }
