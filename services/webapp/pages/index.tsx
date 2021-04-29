@@ -1,31 +1,29 @@
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import styles from '../styles/Home.module.scss';
-import { api } from '../lib/api';
+import Logo from '../components/Logo';
 
 export default function Home() {
   return (
     <div id={styles.app}>
       <Head>
-        <title>sei-whale</title>
+        <title>Gomawo</title>
       </Head>
-      <a href="/login">로그인</a>
-      <button
-        type="button"
-        onClick={() => {
-          api.f.get('/echo-whale', null).then((result) => console.log('!!!', result));
-        }}
-      >
-        Request
-      </button>
+      <header>
+        <Logo />
+        <input type="text" />
+        <button type="button">작성</button>
+        <button type="button">로그인</button>
+      </header>
+      <main id="main"></main>
     </div>
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ req }) => {
-  api.s
-    .get('/echo-whale', null, { cookie: req.headers.cookie })
-    .then((result) => console.log('######## shoot in getServerSideProps', result));
+export const getServerSideProps: GetServerSideProps = async () => {
+  // api.s
+  //   .get('/echo-whale', null, { cookie: req.headers.cookie })
+  //   .then((result) => console.log('######## shoot in getServerSideProps', result));
 
   return {
     props: {},

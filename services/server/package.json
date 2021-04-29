@@ -11,7 +11,7 @@
     "prettier": "prettier --write ./src",
     "eslint": "eslint ./src",
     "test": "jest",
-    "test:watch": "jest --watch --coverage"
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",

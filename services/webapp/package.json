@@ -10,7 +10,7 @@
     "eslint": "eslint --fix",
     "dotenv": "node -r dotenv/config",
     "test": "jest",
-    "test:watch": "jest --watch --coverage"
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "dotenv": "^8.2.0",
