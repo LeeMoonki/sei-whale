@@ -7,7 +7,7 @@
     "db:stop": "docker-compose -f ./mariadb/docker-compose.yml stop",
     "rmi": "docker rmi -f $(docker images -f \"dangling=true\" -q)",
     "up": "docker-compose up",
-    "up:build": "docker-compose up --build",
+    "up:build": "docker-compose down && docker-compose up --build",
     "start": "docker-compose up",
     "stop": "docker-compose stop",
     "down": "docker-compose down",
