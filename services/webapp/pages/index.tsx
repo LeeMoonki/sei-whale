@@ -3,12 +3,19 @@ import Head from 'next/head';
 import styles from '../styles/pages/Home.module.scss';
 import { AppPageProps } from './_app';
 
+import { CardRecommend } from '../components/cards';
+
 export default function Home() {
   return (
     <div id={styles.app}>
       <Head>
         <title>Gomawo</title>
       </Head>
+      <ul>
+        <li>
+          <CardRecommend keywords={['foo', 'bar']} content={'foo, bar를 추천합니다.'} />
+        </li>
+      </ul>
     </div>
   );
 }

@@ -1,0 +1,14 @@
+@import '../../../styles/presets/colors.scss';
+
+$card-shadow-color: rgba(0, 0, 0, .2);
+
+.card {
+  width: 14.7rem; // 0.9375 * 15
+  font-size: 0.9375rem;
+  border-radius: 4px;
+  box-shadow: 1px 1px 2px $card-shadow-color, 0px 0px 1px $card-shadow-color;
+
+  h1, h2 {
+    display: none;
+  }
+}
