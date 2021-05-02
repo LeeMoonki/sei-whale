@@ -1,6 +1,6 @@
 type ClassName = string | undefined | null;
 
-export const getClassName = (classes?: ClassName | ClassName[]) => {
+export const resolveClassName = (classes?: ClassName | ClassName[]): string => {
   if (typeof classes === 'string') {
     return classes;
   }

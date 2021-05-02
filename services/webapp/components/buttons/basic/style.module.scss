@@ -1,0 +1,38 @@
+@import '../../../styles/presets/colors.scss';
+
+.button {
+  flex-shrink: 0;
+  padding: 0 .7rem;
+  height: 2.5rem;
+  border: 0;
+  border-radius: 4px;
+}
+.primary {
+  color: #fff;
+  background-color: $primary;
+}
+.secondary {
+  color: #fff;
+  background-color: $secondary;
+}
+.tertiary {
+  color: #fff;
+  background-color: $tertiary;
+}
+.quaternary {
+  color: #fff;
+  background-color: $quaternary;
+}
+.error {
+  color: #fff;
+  background-color: $error;
+}
+.warn {
+  color: #fff;
+  background-color: $warn;
+}
+.success {
+  color: #fff;
+  background-color: $success;
+}
+

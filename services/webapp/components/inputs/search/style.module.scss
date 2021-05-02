@@ -1,0 +1,14 @@
+$color: #efefef;
+
+.input {
+  padding: 0 1rem;
+  width: 100%;
+  line-height: 2.5;
+  border: 1px solid $color;
+  border-radius: 2.5rem;
+  background-color: $color;
+
+  &:focus {
+    background-color: #fff;
+  }
+}

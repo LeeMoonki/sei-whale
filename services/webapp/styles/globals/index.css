@@ -1,10 +1,18 @@
 html {
-  font-size: 16px;
   box-sizing: border-box;
 }
 html * {
   box-sizing: inherit;
 }
 body {
-  font-family: 'SpoqaHanSansNeo-Regular', 'Arial';
+  font-family: 'SpoqaHanSansNeo-Regular';
 }
+body * {
+  font-family: inherit;
+}
+
+#root {
+  padding: 0 1.5rem;
+  min-height: 100vh;
+}
+#main { /**/ }

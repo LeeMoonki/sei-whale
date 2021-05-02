@@ -1,14 +1,14 @@
-import { getClassName } from '../../../lib/string';
+import { resolveClassName } from '../../../lib/string';
 
 describe('className', () => {
   it('undefined를 전달하면 빈 문자열을 반환합니다.', () => {
-    const result = getClassName();
+    const result = resolveClassName();
 
     expect(result).toBe('');
   });
 
   it('하나의 class 이름만 전달하면 하나의 class 이름만 반환합니다.', () => {
-    const result = getClassName('foo');
+    const result = resolveClassName('foo');
 
     expect(result).toBe('foo');
   });
@@ -24,7 +24,7 @@ describe('className', () => {
     ];
 
     for (const s of samples) {
-      expect(getClassName(s.sample)).toBe(s.expected);
+      expect(resolveClassName(s.sample)).toBe(s.expected);
     }
   });
 });

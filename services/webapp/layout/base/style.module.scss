@@ -1,5 +1,16 @@
 @import '../../styles/presets/default.scss';
 
+#root {
+  padding: 0 1rem;
+}
 .header {
   display: flex;
+  align-items: center;
+  padding: 1rem 0;
+}
+.inputSearch {
+  margin: 0 .625rem;
+}
+.btnWrite {
+  margin-right: .4rem;
 }

@@ -1,5 +1,8 @@
-import Logo from '../../components/Logo';
-import styles from './style.module.scss';
+import Logo from '../../components/logo';
+import style from './style.module.scss';
+
+import { Button } from '../../components/buttons';
+import { InputSearch } from '../../components/inputs';
 
 export interface BaseLayoutProps {
   host?: string;
@@ -8,14 +11,14 @@ export interface BaseLayoutProps {
 
 export default function BaseLayout({ host, children }: BaseLayoutProps) {
   return (
-    <>
-      <header className={styles.header}>
+    <div id="root">
+      <header className={style.header}>
         <Logo host={host || '#main'} />
-        <input type="text" />
-        <button type="button">작성</button>
-        <button type="button">로그인</button>
+        <InputSearch className={style.inputSearch} placeholder="검색어를 입력해주세요" />
+        <Button className={style.btnWrite}>작성</Button>
+        <Button className={style.btnLogin}>로그인</Button>
       </header>
       <main id="main">{children}</main>
-    </>
+    </div>
   );
 }
