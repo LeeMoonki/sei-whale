@@ -1,4 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { getQueryString, QueryStrings } from './url/queryString';
+
 type QueryOption = Omit<RequestInit, 'method'>;
 type BodyOption = Omit<RequestInit, 'method' | 'body'>;
 type JSONBody = {
@@ -21,32 +23,9 @@ interface BodyOptions {
   tool?: ToolOptions;
 }
 
-interface QueryStrings {
-  [key: string]: any;
-}
-
 export interface BaseResponse {
   [key: string]: any;
 }
-
-export const getQs = (qo: QueryStrings | null) => {
-  let queryString = '';
-  const qsarr = [];
-
-  if (!qo) {
-    return '';
-  }
-
-  for (const k in qo) {
-    qsarr.push(`${k}=${encodeURIComponent(qo[k])}`);
-  }
-
-  if (qsarr.length > 0) {
-    queryString = `?${qsarr.join('&')}`;
-  }
-
-  return queryString;
-};
 
 export const api = (function () {
   const getHost = (type: CallType) =>
@@ -62,7 +41,7 @@ export const api = (function () {
       queryStrings: QueryStrings | null,
       options?: QueryOptions
     ): Promise<ResponseType> {
-      const qs = getQs(queryStrings);
+      const qs = getQueryString(queryStrings);
 
       const opts = options || {};
       const apiOptions = opts.api || {};

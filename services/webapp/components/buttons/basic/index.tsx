@@ -2,7 +2,7 @@ import { ButtonProps } from '../types';
 import style from './style.module.scss';
 
 import { ThemeColors } from '../../../styles/presets/types';
-import { resolveClassName } from '../../../lib/string';
+import { resolveClassName } from '../../../lib/dom';
 
 interface ButtonBasicProps extends ButtonProps {
   theme?: ThemeColors;

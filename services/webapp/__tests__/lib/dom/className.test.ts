@@ -1,4 +1,4 @@
-import { resolveClassName } from '../../../lib/string';
+import { resolveClassName } from '../../../lib/dom';
 
 describe('className', () => {
   it('undefined를 전달하면 빈 문자열을 반환합니다.', () => {
