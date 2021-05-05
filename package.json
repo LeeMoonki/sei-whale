@@ -6,12 +6,13 @@
     "db": "sh ./mariadb/reset.sh",
     "db:stop": "docker-compose -f ./mariadb/docker-compose.yml stop",
     "rmi": "docker rmi -f $(docker images -f \"dangling=true\" -q)",
-    "up": "docker-compose up",
-    "up:build": "docker-compose down && docker-compose up --build",
-    "start": "docker-compose up",
+    "up": "yarn preparepkg && docker-compose up",
+    "up:build": "yarn preparepkg && yarn down && docker-compose up --build",
+    "start": "yarn up",
     "stop": "docker-compose stop",
     "down": "docker-compose down",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "preparepkg": "cd services/server && yarn && cd ../webapp && yarn && yarn dotenv1 && cd ../../"
   },
   "license": "MIT",
   "devDependencies": {

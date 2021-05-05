@@ -3,12 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "yarn dotenv && next dev -p 8080",
-    "build": "yarn dotenv && next build",
-    "start": "yarn dotenv && next start",
+    "dev": "yarn dotenv1 && next dev -p 8080",
+    "build": "yarn dotenv1 && next build",
+    "start": "yarn dotenv1 && next start",
     "prettier": "prettier --write .",
     "eslint": "eslint --fix",
     "dotenv": "node -r dotenv/config",
+    "dotenv1": "node parseEnvIntoConfig.js",
     "test": "jest",
     "test:watch": "jest --watch"
   },

@@ -6,6 +6,7 @@
  * page에 추가적인 데이터 삽입
  */
 import type { AppProps /*, AppContext */ } from 'next/app';
+import '../styles/globals/fonts.css';
 import '../styles/globals/reset.css';
 import '../styles/globals/index.css';
 
