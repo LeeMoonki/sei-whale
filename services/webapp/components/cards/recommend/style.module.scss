@@ -3,8 +3,33 @@
 $card-shadow-color: rgba(0, 0, 0, .2);
 
 .card {
+  padding: 0.7rem 1rem;
   width: 14.7rem; // 0.9375 * 15
   font-size: 0.9375rem;
   border-radius: 4px;
   box-shadow: 1px 1px 2px $card-shadow-color, 0px 0px 1px $card-shadow-color;
+  transition: box-shadow .2s;
+
+  &:hover {
+    box-shadow: 2px 2px 3px $card-shadow-color, 1px 1px 2px $card-shadow-color;
+  }
+}
+.keywordHeader {
+  display: flex;
+}
+.keyword {
+  display: block;
+  padding: .2em 1em;
+  font-size: .9em;
+  color: #fff;
+  border-radius: 7px;
+  background-color: $secondary;
+
+  & + a {
+    margin-left: .5em;
+  }
+}
+
+.contentSection {
+  margin-top: 1em;
 }

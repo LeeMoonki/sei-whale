@@ -6,6 +6,7 @@ html * {
 }
 body {
   font-family: 'SpoqaHanSansNeo-Regular';
+  line-height: 1.5;
 }
 body * {
   font-family: inherit;

@@ -11,6 +11,7 @@ export default function Home() {
       <Head>
         <title>Gomawo</title>
       </Head>
+      <h1 className={'visually-hidden'}>고마워 추천 서비스 입니다.</h1>
       <ul>
         <li>
           <CardRecommend keywords={['foo', 'bar']} content={'foo, bar를 추천합니다.'} />

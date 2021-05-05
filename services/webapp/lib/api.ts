@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { getQueryString, QueryStrings } from './url/queryString';
+import { API_URL_IN_FRONT, API_URL_IN_SERVER } from '../config';
 
 type QueryOption = Omit<RequestInit, 'method'>;
 type BodyOption = Omit<RequestInit, 'method' | 'body'>;
@@ -28,8 +29,7 @@ export interface BaseResponse {
 }
 
 export const api = (function () {
-  const getHost = (type: CallType) =>
-    type === 'server' ? (process.env.API_URL_IN_SERVER as string) : 'http://localhost:7070/api/';
+  const getHost = (type: CallType) => (type === 'server' ? API_URL_IN_SERVER : API_URL_IN_FRONT);
   const resolve = (url: string) => url.replace(/(\w)[/]{2,}(\w)/g, '$1/$2').replace(/\/$/, '');
   const apiurl = (hostAndPrefix: string, u: string) => resolve(`${hostAndPrefix}/${u}`);
 
