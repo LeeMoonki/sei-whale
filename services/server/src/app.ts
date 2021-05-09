@@ -11,7 +11,7 @@ import UserApplicationService from './services/app/UserApplicationService';
 
 import registRedisPlugin from './plugins/registRedisPlugin';
 import registRoutesPlugin from './plugins/registRoutesPlugin';
-import registApplicationServicesPlugin from './plugins/registServicesPlugin';
+import injectApplicationServicesPlugin from './plugins/injectServicesPlugin';
 import sessionPlugin from './plugins/sessionPlugin';
 import decorateReplyPlugin from './plugins/decorateReplyPlugin';
 
@@ -57,7 +57,7 @@ app.register(decorateReplyPlugin); // reply decorator들을 등록
 app.register(sessionPlugin); // session
 
 /** Application Service 설정 */
-app.register(registApplicationServicesPlugin, {
+app.register(injectApplicationServicesPlugin, {
   UserApplicationService: UserApplicationService,
 });
 

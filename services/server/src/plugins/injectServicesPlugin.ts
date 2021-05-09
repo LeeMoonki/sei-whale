@@ -13,7 +13,7 @@ interface RegistServicesOptions {
   ) => IUserApplicationService;
 }
 
-const registApplicationServicesPlugin: FastifyPluginAsync<RegistServicesOptions> = async (
+const injectApplicationServicesPlugin: FastifyPluginAsync<RegistServicesOptions> = async (
   fastify,
   options
 ) => {
@@ -22,4 +22,4 @@ const registApplicationServicesPlugin: FastifyPluginAsync<RegistServicesOptions>
   });
 };
 
-export default fp(registApplicationServicesPlugin);
+export default fp(injectApplicationServicesPlugin);
