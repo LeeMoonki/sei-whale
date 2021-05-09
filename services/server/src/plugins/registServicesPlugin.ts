@@ -1,12 +1,15 @@
 import { FastifyPluginAsync } from 'fastify';
 import fp from 'fastify-plugin';
 
-import { IUserApplicationService } from '../services/app/UserApplicationService';
+import UserRepository, { IUserRepository } from '../repository/UserRepository';
+import { IUserApplicationService } from '../services/app/interfaces';
 
 // 여기에서 Application Services를 설정해주면 server/@types/index.d.ts 에서도 설정해줘야 한다.
 
 interface RegistServicesOptions {
-  UserApplicationService: IUserApplicationService;
+  UserApplicationService: new (
+    userRepository: new () => IUserRepository
+  ) => IUserApplicationService;
 }
 
 const registApplicationServicesPlugin: FastifyPluginAsync<RegistServicesOptions> = async (
@@ -14,7 +17,7 @@ const registApplicationServicesPlugin: FastifyPluginAsync<RegistServicesOptions>
   options
 ) => {
   fastify.decorate('services', {
-    user: options.UserApplicationService,
+    user: new options.UserApplicationService(UserRepository),
   });
 };
 

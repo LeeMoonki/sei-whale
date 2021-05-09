@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import fastify, { FastifyLoggerInstance, FastifyRequest } from 'fastify';
 import { RedisClient } from 'redis';
-import { IUserApplicationService } from '../src/services/app/UserApplicationService';
+import { IUserApplicationService } from '../src/services/app/interfaces';
 
 import { SessionExtendRequest } from '../src/plugins/sessionPlugin';
 import { DecorateReplyPlugin } from '../src/plugins/decorateReplyPlugin';

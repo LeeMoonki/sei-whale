@@ -1,7 +1,7 @@
 import { FastifyRequest, FastifyInstance, FastifyPluginAsync } from 'fastify';
 import fp from 'fastify-plugin';
 import { promisify } from 'util';
-import { parse } from '../lib/cookie';
+import { parseCookieString } from '../lib/cookie';
 
 interface FastifySessionHandlerMiddlewareInstance extends FastifyInstance {
   extendRequest: (request: FastifyRequest, key: string, value: any) => void;
@@ -27,7 +27,9 @@ const sessionPlugin: FastifyPluginAsync = async function (fastify) {
 
   fastify.addHook('preHandler', async function (request) {
     if (isFastifySessionHandlerMiddlewareInstance(fastify)) {
-      const sid = parse(request.headers.cookie || '')[process.env.SESSION_KEY as string];
+      const sid = parseCookieString(request.headers.cookie || '')[
+        process.env.SESSION_KEY as string
+      ];
 
       try {
         const userId = await promisify(fastify.redis.get).bind(fastify.redis)(sid || '');

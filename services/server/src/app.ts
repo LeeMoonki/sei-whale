@@ -58,7 +58,7 @@ app.register(sessionPlugin); // session
 
 /** Application Service 설정 */
 app.register(registApplicationServicesPlugin, {
-  UserApplicationService: new UserApplicationService(),
+  UserApplicationService: UserApplicationService,
 });
 
 /** 라우트 */

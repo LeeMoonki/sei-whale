@@ -1,20 +1,15 @@
+import { IUserApplicationService } from './interfaces';
 import { isError } from '../../error';
-import UserRepository, { IUserRepository, UserRepoSave } from '../../repository/UserRepository';
+import { IUserRepository, UserRepoSave } from '../../repository/UserRepository';
 import { encryptPassword, matchPassword } from '../../lib/password';
-import User from '../../entity/User';
 
 type SignupParams = UserRepoSave;
-
-export interface IUserApplicationService {
-  Login: (email: string, password: string) => Promise<User | null>;
-  Signup: (user: SignupParams) => Promise<boolean>;
-}
 
 class UserApplicationService implements IUserApplicationService {
   private readonly userRepo: IUserRepository;
 
-  constructor() {
-    this.userRepo = new UserRepository();
+  constructor(userRepository: new () => IUserRepository) {
+    this.userRepo = new userRepository();
   }
 
   /** 로그인 서비스 */
