@@ -1,6 +1,7 @@
 import { IUserApplicationService } from './interfaces';
 import { isError } from '../../error';
-import { IUserRepository, UserRepoSave } from '../../repository/UserRepository';
+import { UserRepoSave } from '../../repository/interfaces';
+import { IUserRepository } from '../../repository/interfaces';
 import { encryptPassword, matchPassword } from '../../lib/password';
 
 type SignupParams = UserRepoSave;

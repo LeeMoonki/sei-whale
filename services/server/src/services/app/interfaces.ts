@@ -1,5 +1,5 @@
 import User from '../../entity/User';
-import { UserRepoSave } from '../../repository/UserRepository';
+import { UserRepoSave } from '../../repository/interfaces';
 
 type SignupParams = UserRepoSave;
 

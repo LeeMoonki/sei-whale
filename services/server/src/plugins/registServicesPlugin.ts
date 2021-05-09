@@ -1,7 +1,8 @@
 import { FastifyPluginAsync } from 'fastify';
 import fp from 'fastify-plugin';
 
-import UserRepository, { IUserRepository } from '../repository/UserRepository';
+import UserRepository from '../repository/UserRepository';
+import { IUserRepository } from '../repository/interfaces';
 import { IUserApplicationService } from '../services/app/interfaces';
 
 // 여기에서 Application Services를 설정해주면 server/@types/index.d.ts 에서도 설정해줘야 한다.
