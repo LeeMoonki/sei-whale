@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "db": "sh ./mariadb/reset.sh",
+    "db:reset": "cd mariadb && sh ./reset.sh",
     "db:stop": "docker-compose -f ./mariadb/docker-compose.yml stop",
     "rmi": "docker rmi -f $(docker images -f \"dangling=true\" -q)",
     "up": "yarn preparepkg && docker-compose up",
