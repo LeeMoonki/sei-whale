@@ -16,6 +16,7 @@ export type Layout = 'base'; // union
 export interface AppPageProps {
   layout?: Layout;
   host?: string;
+  isLogin?: boolean;
 }
 
 function MyApp({ Component, pageProps }: AppProps) {
