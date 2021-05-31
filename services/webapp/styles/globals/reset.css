@@ -132,11 +132,19 @@ table {
 a {
   margin: 0;
   padding: 0;
-  font-size: 100%;
+  font-size: inherit;
   vertical-align: baseline;
   color: inherit;
   text-decoration: none;
   background: transparent;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
 }
 
 img {

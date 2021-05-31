@@ -24,11 +24,11 @@ function MyApp({ Component, pageProps }: AppProps) {
   // Component에 전달하는 props는 페이지 컴포넌트에서 props로 받는다.
   // 각 페이지에서 작성한 Data Fetching 메서드가 전달하는 props가 여기로 전달되어 컴포넌트로 들어간다.
 
-  const { layout: layout1, host } = pageProps as AppPageProps;
-  const layout = layout1 || 'base';
+  const { layout: layout1, host, isLogin } = pageProps as AppPageProps;
+  const layout = layout1;
 
   return layout === 'base' ? (
-    <BaseLayout host={host}>
+    <BaseLayout host={host} isLogin={isLogin}>
       <Component {...pageProps} />
     </BaseLayout>
   ) : (

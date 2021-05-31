@@ -1,10 +1,14 @@
-import { ButtonProps } from '../types';
+import { ButtonProps, AnchorProps } from '../types';
 import style from './style.module.scss';
 
 import { ThemeColors } from '../../../styles/presets/types';
 import { resolveClassName } from '../../../lib/dom';
 
 interface ButtonBasicProps extends ButtonProps {
+  theme?: ThemeColors;
+}
+
+interface AnchorBasicProps extends AnchorProps {
   theme?: ThemeColors;
 }
 
@@ -23,5 +27,13 @@ export function Button({
     >
       {children}
     </button>
+  );
+}
+
+export function Anchor({ className, theme = 'primary', children, ...props }: AnchorBasicProps) {
+  return (
+    <a className={resolveClassName([style.anchor, style[theme], className])} {...props}>
+      {children}
+    </a>
   );
 }

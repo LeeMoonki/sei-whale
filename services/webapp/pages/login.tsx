@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { useState } from 'react';
-import styles from '../styles/Home.module.scss';
+import styles from '../styles/pages/Home.module.scss';
 
 export default function Home() {
   const [email, setEmail] = useState('foo');
