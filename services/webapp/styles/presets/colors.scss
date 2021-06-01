@@ -1,7 +1,61 @@
-$primary: #1891ac;
-$secondary: #1f5f8b;
-$tertiary: #253b6e;
-$quaternary: #d2ecf9;
+/*
+tint & shade : https://www.tutorialrepublic.com/html-reference/html-color-picker.php
+*/
+
+/* #1891ac */
+$primary900: #0e5867;
+$primary800: #116778;
+$primary700: #137689;
+$primary600: #16849a;
+$primary500: #2f9eb3;
+$primary400: #46a9bc;
+$primary300: #5db3c4;
+$primary200: #74becd;
+$primary100: #8cc9d5;
+$primary50: #a3d4dd;
+$primary: $primary600;
+
+/* #1f5f8b */
+$secondary900: #133a53;
+$secondary800: #164361;
+$secondary700: #194d6f;
+$secondary600: #1c567d;
+$secondary500: #357097;
+$secondary400: #4c80a2;
+$secondary300: #6290ae;
+$secondary200: #79a0b9;
+$secondary100: #8fb0c5;
+$secondary50: #a5bfd1;
+$secondary: $secondary600;
+
+/* #253b6e */
+$tertiary900: #162342;
+$tertiary800: #1a294d;
+$tertiary700: #1e2f58;
+$tertiary600: #213563;
+$tertiary500: #3b4f7d;
+$tertiary400: #51628b;
+$tertiary300: #66769a;
+$tertiary200: #7c89a8;
+$tertiary100: #929db7;
+$tertiary50: #a8b1c5;
+$tertiary: $tertiary600;
+
+/* #d2ecf9 */
+$quaternary900: #93a5ae;
+$quaternary800: #a8bdc7;
+$quaternary700: #bdd4e0;
+$quaternary600: #d7eefa;
+$quaternary500: #dbf0fa;
+$quaternary400: #e0f2fb;
+$quaternary300: #e4f4fb;
+$quaternary200: #e9f6fc;
+$quaternary100: #edf7fd;
+$quaternary50: #f2f9fd;
+$quaternary: $quaternary600;
+
 $error: #c70039;
+
 $warn: #f37121;
+
 $success: #c0e218;

@@ -2,11 +2,17 @@
 
 .common {
   flex-shrink: 0;
-  padding: 0 .7rem;
+  padding: .375rem .75rem;
   height: 2.5rem;
+  vertical-align: middle;
+  font-family: 'SpoqaHanSansNeo-Light';
   border: 0;
-  border-radius: 4px;
+  border-radius: .25rem;
   cursor: pointer;
+
+  transition-property: color, background-color;
+  transition-duration: .15s;
+  transition-timing-function: ease-in-out
 }
 .button {
   @extend .common;
@@ -19,6 +25,9 @@
 .primary {
   color: #fff;
   background-color: $primary;
+  &:hover {
+    background-color: $primary700;
+  }
 }
 .secondary {
   color: #fff;

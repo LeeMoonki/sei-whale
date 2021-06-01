@@ -18,9 +18,12 @@ export default function BaseLayout({ host, isLogin, children }: BaseLayoutProps)
         <InputSearch className={style.inputSearch} placeholder="검색어를 입력해주세요" />
         <Button className={style.btnWrite}>작성</Button>
         {!isLogin && (
-          <Anchor href="/login" className={style.btnLogin}>
-            로그인
-          </Anchor>
+          <>
+            <Anchor href="/login" className={style.btnLogin}>
+              로그인
+            </Anchor>
+            <Anchor>회원가입</Anchor>
+          </>
         )}
       </header>
       <main id="main">{children}</main>
