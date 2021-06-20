@@ -1,8 +1,8 @@
-import Head from 'next/head';
 import { useState } from 'react';
-import styles from '../styles/pages/Home.module.scss';
+import styles from '../../styles/pages/Home.module.scss';
+import { DefaultHead } from '../../components/htmlHead';
 
-export default function Home() {
+export default function Signin() {
   const [email, setEmail] = useState('foo');
   const [password, setPassword] = useState('bar');
 
@@ -29,9 +29,7 @@ export default function Home() {
 
   return (
     <div id={styles.app}>
-      <Head>
-        <title>sei-whale | 로그인</title>
-      </Head>
+      <DefaultHead title="로그인" />
       <form onSubmit={(e) => e.preventDefault()}>
         <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
         <input type="password" onChange={(e) => setPassword(e.target.value)} />

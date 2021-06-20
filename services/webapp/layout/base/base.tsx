@@ -1,7 +1,7 @@
 import Logo from '../../components/logo';
 import style from './style.module.scss';
 
-import { Button, Anchor } from '../../components/buttonAndAnchors';
+import { Button, Anchor } from '../../components/buttonsAndAnchors';
 import { InputSearch } from '../../components/inputs';
 
 export interface BaseLayoutProps {
@@ -19,10 +19,10 @@ export default function BaseLayout({ host, isLogin, children }: BaseLayoutProps)
         <Button className={style.btnWrite}>작성</Button>
         {!isLogin && (
           <>
-            <Anchor href="/login" className={style.btnLogin}>
+            <Anchor href="/signin" className={style.btnLogin}>
               로그인
             </Anchor>
-            <Anchor>회원가입</Anchor>
+            <Anchor href="/signup">회원가입</Anchor>
           </>
         )}
       </header>

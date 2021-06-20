@@ -11,8 +11,9 @@ import '../styles/globals/reset.css';
 import '../styles/globals/index.css';
 
 import BaseLayout from '../layout/base';
+import EmptyLayout from '../layout/empty';
 
-export type Layout = 'base'; // union
+export type Layout = 'base' | 'empty'; // union
 export interface AppPageProps {
   layout?: Layout;
   host?: string;
@@ -27,10 +28,16 @@ function MyApp({ Component, pageProps }: AppProps) {
   const { layout: layout1, host, isLogin } = pageProps as AppPageProps;
   const layout = layout1;
 
+  console.log('MyApp : ', layout1);
+
   return layout === 'base' ? (
     <BaseLayout host={host} isLogin={isLogin}>
       <Component {...pageProps} />
     </BaseLayout>
+  ) : layout === 'empty' ? (
+    <EmptyLayout host={host}>
+      <Component {...pageProps} />
+    </EmptyLayout>
   ) : (
     <Component {...pageProps} />
   );

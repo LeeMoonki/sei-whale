@@ -34,6 +34,7 @@ export function Anchor({ className, theme = 'primary', children, ...props }: Anc
   return (
     <a className={resolveClassName([style.anchor, style[theme], className])} {...props}>
       {children}
+      <span className="visually-hidden">(으)로 이동</span>
     </a>
   );
 }
